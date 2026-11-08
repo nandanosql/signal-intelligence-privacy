@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal Intelligence - Privacy Policy</title>
+<meta name="description" content="Privacy policy for the Signal Intelligence Chrome extension.">
+<style>
+  :root { color-scheme: light dark; --fg:#1b1f24; --muted:#57606a; --bg:#ffffff; --line:#d8dee4; --accent:#0b57d0; --soft:#f6f8fa; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e6edf3; --muted:#9da7b3; --bg:#0d1117; --line:#30363d; --accent:#6ea8fe; --soft:#161b22; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:48px 20px 80px; }
+  h1 { font-size:2rem; line-height:1.2; margin:0 0 6px; }
+  h2 { font-size:1.2rem; margin:40px 0 8px; padding-top:8px; border-top:1px solid var(--line); }
+  p, li { color:var(--fg); }
+  .meta { color:var(--muted); margin:0 0 28px; }
+  .summary { background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin:24px 0; }
+  .summary ul { margin:8px 0 0; padding-left:20px; }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:.95rem; }
+  th, td { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--line); }
+  th { color:var(--muted); font-weight:600; }
+  a { color:var(--accent); }
+  code { background:var(--soft); padding:1px 5px; border-radius:4px; font-size:.9em; }
+  @media (max-width:560px) { main { padding-top:28px; } table { font-size:.88rem; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Signal Intelligence - Privacy Policy</h1>
+  <p class="meta">Applies to the Signal Intelligence Chrome extension. Effective 8 November 2026.</p>
+
+  <div class="summary">
+    <strong>In short</strong>
+    <ul>
+      <li>Everything the extension saves stays in <strong>your own browser</strong>. The developer runs no server and receives no data.</li>
+      <li>No accounts, no analytics, no advertising, no tracking, no selling or sharing of data.</li>
+      <li>Your YouTube API key, if you add one, is stored only on your device and is sent only to Google's YouTube Data API.</li>
+      <li>You can delete everything at any time.</li>
+    </ul>
+  </div>
+
+  <h2>1. What the extension does</h2>
+  <p>Signal Intelligence helps you follow the Indian phone market. It reads phone product pages on Flipkart, Amazon.in and mi.com that you choose to capture, keeps a local price history, compares models, shows public news and community posts about those models, and can fetch public YouTube comments for videos you ask about.</p>
+
+  <h2>2. Data the extension stores</h2>
+  <p>All of the following is stored locally in the extension's storage in your browser (<code>chrome.storage.local</code>, and <code>chrome.storage.session</code> for the YouTube cache). None of it is transmitted to the developer.</p>
+  <table>
+    <thead><tr><th>Data</th><th>Where it comes from</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Product observations: title, variant, colour, price, MRP, seller, rating, review count, page address, time of capture</td><td>The product page you capture, or a tracked listing that Daily Tracking re-reads</td><td>Price history, comparison and trend views</td></tr>
+      <tr><td>Your own notes, model labels, competitor sets and settings</td><td>What you type in the extension</td><td>Launch Radar, Compare, Competitors and preferences</td></tr>
+      <tr><td>News and community items: title, link, publisher name, date</td><td>Public RSS feeds you have enabled (Google News, Reddit, Smartprix, and any https feed you add)</td><td>Social Feeds. Author names and post bodies are not kept</td></tr>
+      <tr><td>YouTube video details and public comments: comment text, author display name, author profile image address, like count, dates</td><td>YouTube Data API v3, only when you start a fetch</td><td>YouTube Comments page and your exports. Results are cached for the browser session only</td></tr>
+      <tr><td>YouTube API key (optional)</td><td>You paste it in</td><td>Required by YouTube Data API v3. Kept on your device, shown masked, never included in exports</td></tr>
+    </tbody>
+  </table>
+  <p>The extension does <strong>not</strong> read or store your browsing history, your logins, cookies, account details, payment details, addresses, or the contents of pages other than the product pages you capture or track.</p>
+
+  <h2>3. Network requests</h2>
+  <p>The extension makes requests directly from your browser, only to the sites below, and only after you grant access to each one. There is no developer server in between.</p>
+  <table>
+    <thead><tr><th>Site</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td>www.flipkart.com, www.amazon.in, www.mi.com</td><td>When you turn on Daily Tracking, the extension opens each tracked product page in a background tab, reads the price details, and closes the tab</td></tr>
+      <tr><td>news.google.com</td><td>When Social Feeds refreshes. The request carries search words such as the phone model names you track</td></tr><tr><td>www.reddit.com, www.smartprix.com</td><td>When Social Feeds refreshes. These are plain feed downloads and carry no search words</td></tr>
+      <tr><td>Any https site you add as a custom feed</td><td>Only for feeds you add yourself</td></tr>
+      <tr><td>www.googleapis.com (YouTube Data API)</td><td>Only when you fetch YouTube comments. The request contains your API key and the video address or search words you entered</td></tr>
+    </tbody>
+  </table>
+  <p>These sites receive ordinary web requests from your browser and handle them under their own privacy policies. The extension uses YouTube API Services; by using that feature you also agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling of data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+  <h2>4. Permissions and why they are needed</h2>
+  <table>
+    <thead><tr><th>Permission</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td><code>storage</code></td><td>Save your history, notes, settings and cache on your device</td></tr>
+      <tr><td><code>activeTab</code> and <code>scripting</code></td><td>Read the product page in the tab you are looking at, only when you click Capture Page</td></tr>
+      <tr><td><code>alarms</code></td><td>Run Daily Tracking on a schedule while it is switched on</td></tr>
+      <tr><td>Optional site access (Flipkart, Amazon.in, mi.com, Google News, Reddit, Smartprix, YouTube Data API, and custom https feeds)</td><td>Requested one feature at a time, only when you use that feature. You can revoke it from <code>chrome://extensions</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. How long data is kept</h2>
+  <ul>
+    <li>Price history for tracked listings: the last 7 or 10 days, as you choose in Daily Tracking. Untracked captures are kept until you delete them.</li>
+    <li>Social Feeds items: up to 500 items, and items older than 90 days are removed.</li>
+    <li>YouTube results: cached for the current browser session only.</li>
+    <li>YouTube API key: kept until you clear it.</li>
+  </ul>
+
+  <h2>6. Your controls</h2>
+  <ul>
+    <li>Delete individual price observations and competitor sets, clear saved feed items, or clear the YouTube API key from inside the extension.</li>
+    <li>Turn Daily Tracking off at any time; its schedule is removed immediately.</li>
+    <li>Export YouTube comment results as CSV or JSON. Exports are files saved to your own device, and they never contain your API key.</li>
+    <li>Removing the extension from Chrome deletes all of its stored data.</li>
+  </ul>
+
+  <h2>7. Sharing and selling</h2>
+  <p>The developer does not collect, sell, rent, share or transfer your data to anyone, does not use it for advertising, creditworthiness or lending, and does not use it for any purpose unrelated to the features described above.</p>
+
+  <h2>8. Children</h2>
+  <p>The extension is a market-research tool for adults and is not directed at children.</p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>If the extension's data handling changes, this page will be updated and the effective date above will change. Material changes will also be described in the extension's release notes.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions or requests about this policy: please open an issue at <a href="https://github.com/nandanosql/signal-intelligence-privacy/issues">github.com/nandanosql/signal-intelligence-privacy/issues</a>.</p>
+</main>
+</body>
+</html>
