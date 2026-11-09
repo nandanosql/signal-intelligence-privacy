@@ -1,0 +1,57 @@
+name: Check policy page
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly link check so broken external links are caught even without commits.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: html-validate
+        run: npx --yes html-validate@8 index.html
+
+  links:
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Links into this repo's own main branch 404 until a PR is merged, so
+          # they are skipped; the files they point to are checked out right here.
+          args: >-
+            --no-progress --accept 200,204,403,429
+            --exclude 'github\.com/nandanosql/signal-intelligence-privacy/blob/'
+            index.html README.md CHANGELOG.md
+          fail: true
+
+  policy-sync:
+    name: Policy covers manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Compare manifest.json with index.html
+        run: |
+          if [ -f manifest.json ]; then
+            node scripts/check-policy-sync.mjs manifest.json index.html
+          else
+            echo "No manifest.json in this repo; copy the extension's manifest here to enable this check."
+          fi

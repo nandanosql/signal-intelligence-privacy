@@ -1,28 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Signal Intelligence - Privacy Policy</title>
 <meta name="description" content="Privacy policy for the Signal Intelligence Chrome extension.">
+<link rel="canonical" href="https://nandanosql.github.io/signal-intelligence-privacy/">
 <style>
   :root { color-scheme: light dark; --fg:#1b1f24; --muted:#57606a; --bg:#ffffff; --line:#d8dee4; --accent:#0b57d0; --soft:#f6f8fa; }
   @media (prefers-color-scheme: dark) { :root { --fg:#e6edf3; --muted:#9da7b3; --bg:#0d1117; --line:#30363d; --accent:#6ea8fe; --soft:#161b22; } }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
   main { max-width:760px; margin:0 auto; padding:48px 20px 80px; }
   h1 { font-size:2rem; line-height:1.2; margin:0 0 6px; }
-  h2 { font-size:1.2rem; margin:40px 0 8px; padding-top:8px; border-top:1px solid var(--line); }
+  h2 { font-size:1.2rem; margin:40px 0 8px; padding-top:8px; border-top:1px solid var(--line); scroll-margin-top:16px; }
+  h2 a.anchor { color:var(--muted); text-decoration:none; font-weight:400; margin-left:6px; opacity:0; }
+  h2:hover a.anchor, h2 a.anchor:focus { opacity:1; }
   p, li { color:var(--fg); }
   .meta { color:var(--muted); margin:0 0 28px; }
   .summary { background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin:24px 0; }
   .summary ul { margin:8px 0 0; padding-left:20px; }
+  nav.toc { font-size:.95rem; margin:24px 0 8px; }
+  nav.toc ol { margin:6px 0 0; padding-left:22px; columns:2; column-gap:24px; }
+  nav.toc li { break-inside:avoid; }
   table { width:100%; border-collapse:collapse; margin:12px 0; font-size:.95rem; }
   th, td { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--line); }
   th { color:var(--muted); font-weight:600; }
   a { color:var(--accent); }
   code { background:var(--soft); padding:1px 5px; border-radius:4px; font-size:.9em; }
-  @media (max-width:560px) { main { padding-top:28px; } table { font-size:.88rem; } }
+  .history { font-size:.95rem; }
+  .history dt { font-weight:600; margin-top:10px; }
+  .history dd { margin:2px 0 0; color:var(--fg); }
+  @media (max-width:560px) { main { padding-top:28px; } table { font-size:.88rem; } nav.toc ol { columns:1; } }
+  @media print {
+    :root { --fg:#000; --muted:#444; --bg:#fff; --line:#999; --accent:#000; --soft:#fff; }
+    body { font-size:11pt; line-height:1.45; }
+    main { max-width:none; padding:0; }
+    nav.toc, h2 a.anchor { display:none; }
+    h2 { break-after:avoid; }
+    table, tr { break-inside:avoid; }
+    .summary { border:1px solid #999; }
+    a { text-decoration:none; }
+    a[href^="http"]::after { content:" (" attr(href) ")"; font-size:.85em; color:#444; }
+  }
 </style>
 </head>
 <body>
@@ -40,16 +61,33 @@
     </ul>
   </div>
 
-  <h2>1. What the extension does</h2>
+  <nav class="toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#what-it-does">What the extension does</a></li>
+      <li><a href="#data-stored">Data the extension stores</a></li>
+      <li><a href="#network">Network requests</a></li>
+      <li><a href="#permissions">Permissions</a></li>
+      <li><a href="#retention">How long data is kept</a></li>
+      <li><a href="#controls">Your controls</a></li>
+      <li><a href="#sharing">Sharing and selling</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#legal">Legal basis and your rights</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what-it-does">1. What the extension does <a class="anchor" href="#what-it-does" aria-label="Link to this section">#</a></h2>
   <p>Signal Intelligence helps you follow the Indian phone market. It reads phone product pages on Flipkart, Amazon.in, mi.com and the vivo India E-Store that you choose to capture, keeps a local price history, compares models, shows public news and community posts about those models, and can fetch public YouTube comments for videos you ask about.</p>
 
-  <h2>2. Data the extension stores</h2>
+  <h2 id="data-stored">2. Data the extension stores <a class="anchor" href="#data-stored" aria-label="Link to this section">#</a></h2>
   <p>All of the following is stored locally in the extension's storage in your browser (<code>chrome.storage.local</code>, and <code>chrome.storage.session</code> for the YouTube cache). None of it is transmitted to the developer.</p>
   <table>
-    <thead><tr><th>Data</th><th>Where it comes from</th><th>Why</th></tr></thead>
+    <thead><tr><th scope="col">Data</th><th scope="col">Where it comes from</th><th scope="col">Why</th></tr></thead>
     <tbody>
       <tr><td>Product observations: title, variant, colour, price, MRP, seller, rating, review count, page address, time of capture</td><td>The product page you capture, or a tracked listing that Daily Tracking re-reads</td><td>Price history, comparison and trend views</td></tr>
-      <tr><td>Your own notes, model labels, competitor sets and settings</td><td>What you type in the extension</td><td>Launch Radar, Compare, Competitors and preferences</td></tr>
+      <tr><td>Your own notes, model labels, competitor sets, price floors, price-move alert rules, launch dates and settings</td><td>What you type in the extension</td><td>Launch Radar, Compare, Competitors, Insights and preferences. Insights is built only from data already saved in your browser and makes no network request</td></tr>
       <tr><td>News and community items: title, link, publisher name, date</td><td>Public RSS feeds you have enabled (Google News, Reddit, Smartprix, and any https feed you add)</td><td>Social Feeds. Author names and post bodies are not kept</td></tr>
       <tr><td>YouTube video details and public comments: comment text, author display name, author profile image address, like count, dates</td><td>YouTube Data API v3, only when you start a fetch</td><td>YouTube Comments page and your exports. Results are cached for the browser session only</td></tr>
       <tr><td>YouTube API key (optional)</td><td>You paste it in</td><td>Required by YouTube Data API v3. Kept on your device, shown masked, never included in exports</td></tr>
@@ -57,22 +95,24 @@
   </table>
   <p>The extension does <strong>not</strong> read or store your browsing history, your logins, cookies, account details, payment details, addresses, or the contents of pages other than the product pages you capture or track.</p>
 
-  <h2>3. Network requests</h2>
+  <h2 id="network">3. Network requests <a class="anchor" href="#network" aria-label="Link to this section">#</a></h2>
   <p>The extension makes requests directly from your browser, only to the sites below, and only after you grant access to each one. There is no developer server in between.</p>
   <table>
-    <thead><tr><th>Site</th><th>When</th></tr></thead>
+    <thead><tr><th scope="col">Site</th><th scope="col">When</th></tr></thead>
     <tbody>
       <tr><td>www.flipkart.com, www.amazon.in, www.mi.com, shop.vivo.com</td><td>When you turn on Daily Tracking, the extension opens each tracked product page in a background tab, reads the price details, and closes the tab</td></tr>
-      <tr><td>news.google.com</td><td>When Social Feeds refreshes. The request carries search words such as the phone model names you track</td></tr><tr><td>www.reddit.com, www.smartprix.com</td><td>When Social Feeds refreshes. These are plain feed downloads and carry no search words</td></tr>
+      <tr><td>news.google.com</td><td>When Social Feeds refreshes. The request carries search words such as the phone model names you track</td></tr>
+      <tr><td>www.reddit.com, www.smartprix.com</td><td>When Social Feeds refreshes. These are plain feed downloads and carry no search words</td></tr>
       <tr><td>Any https site you add as a custom feed</td><td>Only for feeds you add yourself</td></tr>
       <tr><td>www.googleapis.com (YouTube Data API)</td><td>Only when you fetch YouTube comments. The request contains your API key and the video address or search words you entered</td></tr>
     </tbody>
   </table>
+  <p>When Daily Tracking opens a tracked product page in a background tab, your browser sends that site the same cookies it would send on a normal visit. If you are signed in to Flipkart, Amazon.in, mi.com or the vivo E-Store, that site will see the visit as yours, exactly as if you had opened the page yourself. The extension does not read, copy or store those cookies, and it adds nothing to the request beyond the page address.</p>
   <p>These sites receive ordinary web requests from your browser and handle them under their own privacy policies. The extension uses YouTube API Services; by using that feature you also agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling of data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 
-  <h2>4. Permissions and why they are needed</h2>
+  <h2 id="permissions">4. Permissions and why they are needed <a class="anchor" href="#permissions" aria-label="Link to this section">#</a></h2>
   <table>
-    <thead><tr><th>Permission</th><th>Reason</th></tr></thead>
+    <thead><tr><th scope="col">Permission</th><th scope="col">Reason</th></tr></thead>
     <tbody>
       <tr><td><code>storage</code></td><td>Save your history, notes, settings and cache on your device</td></tr>
       <tr><td><code>activeTab</code> and <code>scripting</code></td><td>Read the product page in the tab you are looking at, only when you click Capture Page</td></tr>
@@ -81,15 +121,15 @@
     </tbody>
   </table>
 
-  <h2>5. How long data is kept</h2>
+  <h2 id="retention">5. How long data is kept <a class="anchor" href="#retention" aria-label="Link to this section">#</a></h2>
   <ul>
-    <li>Daily updates of tracked listings: the last 7 or 10 days, as you choose in Daily Tracking. Captures you save yourself, tracked or not, are kept until you delete them.</li>
+    <li>Daily updates of tracked listings: kept in full for the last 7 or 10 days, as you choose in Daily Tracking. Older Daily updates are merged into a single point per listing (the newest of them, with its price and time) rather than kept one by one. A listing's newest reading is always kept. Captures you save yourself, your notes, and paused or untracked listings are never touched, and are kept until you delete them.</li>
     <li>Social Feeds items: up to 500 items, and items older than 90 days are removed.</li>
     <li>YouTube results: cached for the current browser session only.</li>
     <li>YouTube API key: kept until you clear it.</li>
   </ul>
 
-  <h2>6. Your controls</h2>
+  <h2 id="controls">6. Your controls <a class="anchor" href="#controls" aria-label="Link to this section">#</a></h2>
   <ul>
     <li>Delete individual price observations and competitor sets, clear saved feed items, or clear the YouTube API key from inside the extension.</li>
     <li>Turn Daily Tracking off at any time; its schedule is removed immediately.</li>
@@ -97,17 +137,32 @@
     <li>Removing the extension from Chrome deletes all of its stored data.</li>
   </ul>
 
-  <h2>7. Sharing and selling</h2>
+  <h2 id="sharing">7. Sharing and selling <a class="anchor" href="#sharing" aria-label="Link to this section">#</a></h2>
   <p>The developer does not collect, sell, rent, share or transfer your data to anyone, does not use it for advertising, creditworthiness or lending, and does not use it for any purpose unrelated to the features described above.</p>
 
-  <h2>8. Children</h2>
+  <h2 id="children">8. Children <a class="anchor" href="#children" aria-label="Link to this section">#</a></h2>
   <p>The extension is a market-research tool for adults and is not directed at children.</p>
 
-  <h2>9. Changes to this policy</h2>
-  <p>If the extension's data handling changes, this page will be updated and the effective date above will change. Material changes will also be described in the extension's release notes.</p>
+  <h2 id="legal">9. Legal basis and your rights <a class="anchor" href="#legal" aria-label="Link to this section">#</a></h2>
+  <p>The extension is built for people following the Indian phone market, so India's <a href="https://www.meity.gov.in/data-protection-framework">Digital Personal Data Protection Act, 2023</a> is the law most likely to apply to you. Because the developer never receives, stores or has access to any of your data, the developer does not process your personal data and has nothing to share, correct or erase on your behalf. The same is true under the GDPR and similar laws elsewhere.</p>
+  <p>Any personal data that the extension handles, such as the display names of people who commented on a YouTube video, is processed only on your own device, under your control, and is covered by the controls in section 6. You are responsible for how you use data you export.</p>
+  <p>Access to the third-party sites listed in section 3 is governed by their own policies, and any rights you have against them are exercised with them directly.</p>
 
-  <h2>10. Contact</h2>
-  <p>Questions or requests about this policy: please open an issue at <a href="https://github.com/nandanosql/signal-intelligence-privacy/issues">github.com/nandanosql/signal-intelligence-privacy/issues</a>.</p>
+  <h2 id="changes">10. Changes to this policy <a class="anchor" href="#changes" aria-label="Link to this section">#</a></h2>
+  <p>If the extension's data handling changes, this page will be updated and the effective date above will change. Material changes will also be described in the extension's release notes. Every revision is listed below and in the repository's <a href="https://github.com/nandanosql/signal-intelligence-privacy/blob/main/CHANGELOG.md">CHANGELOG</a>.</p>
+  <dl class="history">
+    <dt>9 November 2026 (extension v0.11.0)</dt>
+    <dd>Section 2 lists the price floors, alert rules and launch dates that the Insights page saves (v0.11.0). Section 5 describes how Daily updates older than the 7 or 10 day window are merged instead of deleted (v0.10.0). Clarified that background tabs opened by Daily Tracking carry your normal site cookies. Added the legal basis section, an email contact, a table of contents and this revision history.</dd>
+    <dt>9 November 2026 (extension v0.9.1)</dt>
+    <dd>Added the vivo India E-Store (shop.vivo.com) to the sites the extension reads.</dd>
+    <dt>8 November 2026 (extension v0.8.7)</dt>
+    <dd>Retention limits now apply only to automatic Daily Tracking updates. Captures you save yourself are kept until you delete them.</dd>
+    <dt>8 November 2026</dt>
+    <dd>First published.</dd>
+  </dl>
+
+  <h2 id="contact">11. Contact <a class="anchor" href="#contact" aria-label="Link to this section">#</a></h2>
+  <p>Questions or requests about this policy: email <a href="mailto:nandanpriyadarshi298@gmail.com">nandanpriyadarshi298@gmail.com</a>, or open an issue at <a href="https://github.com/nandanosql/signal-intelligence-privacy/issues">github.com/nandanosql/signal-intelligence-privacy/issues</a>.</p>
 </main>
 </body>
 </html>
