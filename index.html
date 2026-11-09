@@ -87,7 +87,7 @@
     <thead><tr><th scope="col">Data</th><th scope="col">Where it comes from</th><th scope="col">Why</th></tr></thead>
     <tbody>
       <tr><td>Product observations: title, variant, colour, price, MRP, seller, rating, review count, page address, time of capture</td><td>The product page you capture, or a tracked listing that Daily Tracking re-reads</td><td>Price history, comparison and trend views</td></tr>
-      <tr><td>Your own notes, model labels, competitor sets and settings</td><td>What you type in the extension</td><td>Launch Radar, Compare, Competitors and preferences</td></tr>
+      <tr><td>Your own notes, model labels, competitor sets, price floors, price-move alert rules, launch dates and settings</td><td>What you type in the extension</td><td>Launch Radar, Compare, Competitors, Insights and preferences. Insights is built only from data already saved in your browser and makes no network request</td></tr>
       <tr><td>News and community items: title, link, publisher name, date</td><td>Public RSS feeds you have enabled (Google News, Reddit, Smartprix, and any https feed you add)</td><td>Social Feeds. Author names and post bodies are not kept</td></tr>
       <tr><td>YouTube video details and public comments: comment text, author display name, author profile image address, like count, dates</td><td>YouTube Data API v3, only when you start a fetch</td><td>YouTube Comments page and your exports. Results are cached for the browser session only</td></tr>
       <tr><td>YouTube API key (optional)</td><td>You paste it in</td><td>Required by YouTube Data API v3. Kept on your device, shown masked, never included in exports</td></tr>
@@ -123,7 +123,7 @@
 
   <h2 id="retention">5. How long data is kept <a class="anchor" href="#retention" aria-label="Link to this section">#</a></h2>
   <ul>
-    <li>Daily updates of tracked listings: the last 7 or 10 days, as you choose in Daily Tracking. Captures you save yourself, tracked or not, are kept until you delete them.</li>
+    <li>Daily updates of tracked listings: kept in full for the last 7 or 10 days, as you choose in Daily Tracking. Older Daily updates are merged into a single point per listing (the newest of them, with its price and time) rather than kept one by one. A listing's newest reading is always kept. Captures you save yourself, your notes, and paused or untracked listings are never touched, and are kept until you delete them.</li>
     <li>Social Feeds items: up to 500 items, and items older than 90 days are removed.</li>
     <li>YouTube results: cached for the current browser session only.</li>
     <li>YouTube API key: kept until you clear it.</li>
@@ -151,8 +151,10 @@
   <h2 id="changes">10. Changes to this policy <a class="anchor" href="#changes" aria-label="Link to this section">#</a></h2>
   <p>If the extension's data handling changes, this page will be updated and the effective date above will change. Material changes will also be described in the extension's release notes. Every revision is listed below and in the repository's <a href="https://github.com/nandanosql/signal-intelligence-privacy/blob/main/CHANGELOG.md">CHANGELOG</a>.</p>
   <dl class="history">
+    <dt>9 November 2026 (extension v0.11.0)</dt>
+    <dd>Section 2 lists the price floors, alert rules and launch dates that the Insights page saves (v0.11.0). Section 5 describes how Daily updates older than the 7 or 10 day window are merged instead of deleted (v0.10.0). Clarified that background tabs opened by Daily Tracking carry your normal site cookies. Added the legal basis section, an email contact, a table of contents and this revision history.</dd>
     <dt>9 November 2026 (extension v0.9.1)</dt>
-    <dd>Added the vivo India E-Store (shop.vivo.com) to the sites the extension reads. Clarified that background tabs opened by Daily Tracking carry your normal site cookies. Added the legal basis section, an email contact, a table of contents and this revision history.</dd>
+    <dd>Added the vivo India E-Store (shop.vivo.com) to the sites the extension reads.</dd>
     <dt>8 November 2026 (extension v0.8.7)</dt>
     <dd>Retention limits now apply only to automatic Daily Tracking updates. Captures you save yourself are kept until you delete them.</dd>
     <dt>8 November 2026</dt>

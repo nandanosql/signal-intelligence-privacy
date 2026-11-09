@@ -46,7 +46,11 @@ function hostOf(pattern) {
 
 // "*.flipkart.com" is covered if "flipkart.com" appears anywhere in the policy.
 function hostMentioned(host) {
-  if (host === "<all_urls>") return text.includes("all websites") || text.includes("every website");
+  // "https://*/*" (any https site, used for custom feeds) and <all_urls> need a
+  // sentence about arbitrary sites rather than a hostname.
+  if (host === "*" || host === "<all_urls>") {
+    return /any https (site|feed)|all websites|every website|any website/.test(text);
+  }
   const bare = host.replace(/^\*\./, "");
   return text.includes(bare);
 }

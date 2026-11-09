@@ -16,7 +16,9 @@ Questions or requests: email nandanpriyadarshi298@gmail.com or open an issue in 
    node scripts/check-policy-sync.mjs /path/to/extension/manifest.json
    ```
 
-   It fails if any permission or host in the manifest is not mentioned in the policy. If a copy of `manifest.json` is committed to this repo, the GitHub Actions workflow runs the same check on every push.
+   It fails if any permission or host in the manifest is not mentioned in the policy. The `manifest.json` in this repo is a snapshot of the extension's manifest; update it with each extension release so the GitHub Actions workflow checks the policy against the current permissions on every push.
+
+The extension repository keeps its own copy of this page at `store/privacy-policy.html`. After changing `index.html` here, copy it over so the two stay identical.
 
 ## Checks
 
