@@ -32,7 +32,12 @@ jobs:
       - name: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --accept 200,204,403,429 index.html README.md CHANGELOG.md
+          # Links into this repo's own main branch 404 until a PR is merged, so
+          # they are skipped; the files they point to are checked out right here.
+          args: >-
+            --no-progress --accept 200,204,403,429
+            --exclude 'github\.com/nandanosql/signal-intelligence-privacy/blob/'
+            index.html README.md CHANGELOG.md
           fail: true
 
   policy-sync:
