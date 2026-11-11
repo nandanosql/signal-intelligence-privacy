@@ -49,7 +49,7 @@
 <body>
 <main>
   <h1>Signal Intelligence - Privacy Policy</h1>
-  <p class="meta">Applies to the Signal Intelligence Chrome extension. Effective 9 November 2026.</p>
+  <p class="meta">Applies to the Signal Intelligence Chrome extension. Effective 10 November 2026.</p>
 
   <div class="summary">
     <strong>In short</strong>
@@ -82,14 +82,15 @@
   <p>Signal Intelligence helps you follow the Indian phone market. It reads phone product pages on Flipkart, Amazon.in, mi.com and the vivo India E-Store that you choose to capture, keeps a local price history, compares models, shows public news and community posts about those models, and can fetch public YouTube comments for videos you ask about.</p>
 
   <h2 id="data-stored">2. Data the extension stores <a class="anchor" href="#data-stored" aria-label="Link to this section">#</a></h2>
-  <p>All of the following is stored locally in the extension's storage in your browser (<code>chrome.storage.local</code>, and <code>chrome.storage.session</code> for the YouTube cache). None of it is transmitted to the developer.</p>
+  <p>All of the following is stored locally in the extension's storage in your browser (<code>chrome.storage.local</code>). None of it is transmitted to the developer.</p>
   <table>
     <thead><tr><th scope="col">Data</th><th scope="col">Where it comes from</th><th scope="col">Why</th></tr></thead>
     <tbody>
       <tr><td>Product observations: title, variant, colour, price, MRP, seller, rating, review count, page address, time of capture</td><td>The product page you capture, or a tracked listing that Daily Tracking re-reads</td><td>Price history, comparison and trend views</td></tr>
+      <tr><td>Launch Radar notes and on-device launch briefs: the headline, source, date and label you save, plus any brief written from them</td><td>What you save, and Chrome's built-in AI on this computer for a brief</td><td>Launch Radar. A brief is written only when you press Write brief, is kept with the notes it was made from, and is never sent anywhere</td></tr>
       <tr><td>Your own notes, model labels, competitor sets, price floors, price-move alert rules, launch dates and settings</td><td>What you type in the extension</td><td>Launch Radar, Compare, Competitors, Insights and preferences. Insights is built only from data already saved in your browser and makes no network request</td></tr>
       <tr><td>News and community items: title, link, publisher name, date</td><td>Public RSS feeds you have enabled (Google News, Reddit, Smartprix, and any https feed you add)</td><td>Social Feeds. Author names and post bodies are not kept</td></tr>
-      <tr><td>YouTube video details and public comments: comment text, author display name, author profile image address, like count, dates</td><td>YouTube Data API v3, only when you start a fetch</td><td>YouTube Comments page and your exports. Results are cached for the browser session only</td></tr>
+      <tr><td>YouTube video details and public comments: comment text, author display name, author profile image address, like count, dates</td><td>YouTube Data API v3, only when you start a fetch</td><td>YouTube Comments page and your exports. The newest 6 results are kept on your device until you clear them, together with any on-device summary made from them</td></tr>
       <tr><td>YouTube API key (optional)</td><td>You paste it in</td><td>Required by YouTube Data API v3. Kept on your device, shown masked, never included in exports</td></tr>
     </tbody>
   </table>
@@ -125,13 +126,14 @@
   <ul>
     <li>Daily updates of tracked listings: kept in full for the last 7 or 10 days, as you choose in Daily Tracking. Older Daily updates are merged into a single point per listing (the newest of them, with its price and time) rather than kept one by one. A listing's newest reading is always kept. Captures you save yourself, your notes, and paused or untracked listings are never touched, and are kept until you delete them.</li>
     <li>Social Feeds items: up to 500 items, and items older than 90 days are removed.</li>
-    <li>YouTube results: cached for the current browser session only.</li>
+    <li>YouTube results and on-device summaries: the newest 6 results are kept until you press Clear Saved Results, a newer fetch replaces them, or you remove the extension.</li>
+    <li>Launch briefs: one per launch, for the newest 30 launches, kept until you press Remove on the brief, the notes change so it is out of date and you no longer rewrite it, or you remove the extension.</li>
     <li>YouTube API key: kept until you clear it.</li>
   </ul>
 
   <h2 id="controls">6. Your controls <a class="anchor" href="#controls" aria-label="Link to this section">#</a></h2>
   <ul>
-    <li>Delete individual price observations and competitor sets, clear saved feed items, or clear the YouTube API key from inside the extension.</li>
+    <li>Delete individual price observations and competitor sets, clear saved feed items, clear saved YouTube results and summaries, or clear the YouTube API key from inside the extension.</li>
     <li>Turn Daily Tracking off at any time; its schedule is removed immediately.</li>
     <li>Export YouTube comment results as CSV or JSON. Exports are files saved to your own device, and they never contain your API key.</li>
     <li>Removing the extension from Chrome deletes all of its stored data.</li>
@@ -151,6 +153,10 @@
   <h2 id="changes">10. Changes to this policy <a class="anchor" href="#changes" aria-label="Link to this section">#</a></h2>
   <p>If the extension's data handling changes, this page will be updated and the effective date above will change. Material changes will also be described in the extension's release notes. Every revision is listed below and in the repository's <a href="https://github.com/nandanosql/signal-intelligence-privacy/blob/main/CHANGELOG.md">CHANGELOG</a>.</p>
   <dl class="history">
+    <dt>10 November 2026 (extension v0.17.0)</dt>
+    <dd>Launch Radar's on-device briefs are kept in this browser with the notes they were made from (one per launch, newest 30 launches), and are removed with Remove, when new notes make them out of date, or with the extension. The first-run tour opens once after installation, stores nothing and asks for no permission.</dd>
+    <dt>10 November 2026 (extension v0.12.1)</dt>
+    <dd>Fetched YouTube results, and any on-device summary made from them, are now kept in the extension's local storage (the newest 6) until you clear them, instead of for the browser session only, so they survive closing Chrome. Added Clear Saved Results. Nothing is sent anywhere new.</dd>
     <dt>9 November 2026 (extension v0.11.0)</dt>
     <dd>Section 2 lists the price floors, alert rules and launch dates that the Insights page saves (v0.11.0). Section 5 describes how Daily updates older than the 7 or 10 day window are merged instead of deleted (v0.10.0). Clarified that background tabs opened by Daily Tracking carry your normal site cookies. Added the legal basis section, an email contact, a table of contents and this revision history.</dd>
     <dt>9 November 2026 (extension v0.9.1)</dt>
